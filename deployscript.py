@@ -2,6 +2,18 @@
 
 import sys
 import os
+import git
+import logging
+# import requests
+# import subprocess
+# import tarfile
+# import time
+
+current_directory = (os.path.dirname(os.path.realpath(__file__)))
+log_filename = current_directory + '/bigpandaio-deploy.log'
+
+print('Log file: ', log_filename)
+print('Current directory: ', current_directory)
 
 # Printing script args
 print('sys.argv = ', sys.argv)
@@ -19,7 +31,13 @@ print('sys.argv = ', sys.argv)
 
 
 # Cloning Git
+def git_clone():
+    try:
+        git.Git(current_directory/ops-exercise).pull('git://github.com/bigpandaio/ops-exercise.git')
+    except Exception as e:
+        logging.error(e)
 
+git_clone()
 
 # Downloading resources
 

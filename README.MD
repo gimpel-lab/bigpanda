@@ -2,10 +2,11 @@
 
 
 ```
-apt install -y git python3
+apt install -y git python3 python3-pip
 
 
 ```
+
 
 Structure:
 ```
