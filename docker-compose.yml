@@ -1,0 +1,18 @@
+version: '3'
+services:
+  web:
+    container_name: bigpanda-nodejs
+    build:
+        context: https://github.com/bigpandaio/ops-exercise.git
+    ports:
+        - "3000:3000"
+    links:
+     - db
+    depends_on:
+     - db
+    volumes:
+     - ./public:/opt/app/public
+  db:
+    container_name: bigpanda-mongodb
+    build:
+        context: https://github.com/bigpandaio/ops-exercise.git#:db
